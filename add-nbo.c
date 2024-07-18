@@ -25,9 +25,9 @@ uint32_t read_bytes_from_file(const char *file_name) {
     }
     
     uint32_t res;   // 결과값 저장
-    size_t read_size = fread(&res, sizeof(uint32_t), 1, file);
+    size_t read_size = fread(&res, sizeof(uint32_t), 1, file);  // uint32_t의 크기(4바이트)만큼 읽은 다음, 그 값을 res에 저장
 
-    // 파일을 제대로 읽을 수 없다면
+    // 1개(4바이트) 이상 읽어온다면 -> 에러
     if (read_size != 1) {
         printf("Error occured while reading file %s\n", file_name);
         fclose(file);
