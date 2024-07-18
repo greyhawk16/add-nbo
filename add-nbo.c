@@ -44,6 +44,9 @@ uint32_t read_bytes_from_file(const char *file_name) {
 
 
 int main(int argc, char *argv[]) {
+    char name[] = "양준헌";
+    printf("[bob13][개발]add-nbo[%s]\n", name);
+
     if (argc != 3) {
         printf("Requires 2 arguments\n");
         return 0;
