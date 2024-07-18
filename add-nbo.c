@@ -24,9 +24,8 @@ uint32_t read_bytes_from_file(const char *file_name) {
         exit(EXIT_FAILURE);
     }
     
-    uint32_t n;
-
-    size_t read_size = fread(&n, sizeof(uint32_t), 1, file);
+    uint32_t res;   // 결과값 저장
+    size_t read_size = fread(&res, sizeof(uint32_t), 1, file);
 
     // 파일을 제대로 읽을 수 없다면
     if (read_size != 1) {
@@ -36,10 +35,10 @@ uint32_t read_bytes_from_file(const char *file_name) {
     }
 
     // 여기에서 n을 little endian 에서 big endian으로 변경 
-    n = ntohl(n);
+    res = ntohl(res);
     fclose(file);
 
-    return n;
+    return res;
 }
 
 
